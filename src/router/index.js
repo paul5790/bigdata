@@ -22,6 +22,11 @@ const routes = [
     name: "googlemap",
     component: () => import("../views/GoogleMap.vue"),
   },
+  {
+    path: "/datatable",
+    name: "datatable",
+    component: () => import("../views/DataTable.vue"),
+  },
 ];
 
 const router = createRouter({

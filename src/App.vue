@@ -4,6 +4,7 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/third">third</router-link> |
     <router-link to="/googlemap">GoogleMap</router-link> |
+    <router-link to="/datatable">DataTable</router-link> 
   </nav>
   <router-view />
 </template>
