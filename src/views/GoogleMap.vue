@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="mapContainer" style="width: 100%; height: 800px;"></div>
+    <div ref="mapContainer" style="width: 350px; height: 350px;"></div>
   </div>
 </template>
 
@@ -8,11 +8,12 @@
 import { ref, onMounted } from 'vue';
 
 const mapContainer = ref(null); // Ref for the map container element
+const currentLocationMarker = ref(null); // Ref for the current location marker
 
 onMounted(() => {
   const map = new google.maps.Map(mapContainer.value, {
-    zoom: 10,
-    center: { lat: 34.259247, lng: 126.340502 },
+    zoom: 8,
+    center: { lat: 34.037247, lng: 126.710502 },
     mapTypeId: "terrain",
   });
 
@@ -41,6 +42,17 @@ onMounted(() => {
   });
 
   flightPath.setMap(map);
+
+  // 현재 위치 마커 생성
+  currentLocationMarker.value = new google.maps.Marker({
+    position: { lat: 34.037247, lng: 126.710502 },
+    map: map,
+    title: '현재 위치',
+    icon: {
+      url: '/ship1.png', // 배 이미지의 경로
+      scaledSize: new google.maps.Size(30, 15), // 아이콘 크기 조절
+    },
+  });
 });
 </script>
 const center = ref({ lat: 34.389247, lng: 128.044502 });
